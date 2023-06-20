@@ -45,8 +45,7 @@
             </Grid>
             
         </Grid>
-        <VerticalStackLayout Padding="20" Grid.Row="1" Spacing="10">
-
+        <VerticalStackLayout Padding="20" Grid.Row="1" >
             <Button Text="Configure" Command="{Binding NavigateToConfigurationCommand}"></Button>
         </VerticalStackLayout>
     </Grid>
