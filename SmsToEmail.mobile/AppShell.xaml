@@ -10,6 +10,6 @@
 		Shell.NavBarIsVisible="true"
 		Title="Blank"
 		Icon="iconblank.png"
-		ContentTemplate="{DataTemplate views:BlankPage}"
+		ContentTemplate="{DataTemplate views:MainPage}"
 		Route="BlankPage" />
 </Shell>

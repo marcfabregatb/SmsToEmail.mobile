@@ -46,6 +46,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\Power.svg" />
 	  <None Remove="Resources\Images\service_icon.svg" />
 	</ItemGroup>
 
@@ -54,6 +55,12 @@
 	  <PackageReference Include="CommunityToolkit.MVVM" Version="8.2.0" />
 	  <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.1" />
 	  <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\MainPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 	<PropertyGroup Label="MauiAppAccelerator">
