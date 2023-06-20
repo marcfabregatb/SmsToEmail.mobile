@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content;
 using Android.Runtime;
+using CommunityToolkit.Mvvm.Messaging;
 using SmsToEmail.mobile.Helpers;
 using SmsToEmail.mobile.Helpers.Events;
 using SmsToEmail.mobile.Platforms.Android.Services;
@@ -38,14 +39,14 @@ public class MainApplication : MauiApplication
     void SetServiceMethods()
     {
         var serviceHelper = this.Services.GetService<IAndroidServiceHelper>();
-        MessagingCenter.Subscribe<StartServiceMessage>(this, "ServiceStarted", message => {
+        WeakReferenceMessenger.Default.Register<StartServiceMessage>(this, async (r, m) => {
             if (Preferences.Get(AppConstants.ServiceConfigured, false) && !IsServiceRunning(typeof(SmsService)))
             {
                 serviceHelper?.StartService();
             }
         });
 
-        MessagingCenter.Subscribe<StopServiceMessage>(this, "ServiceStopped", message => {
+        WeakReferenceMessenger.Default.Register<StopServiceMessage>(this, async (r, m) => {
             if (IsServiceRunning(typeof(SmsService)))
                 serviceHelper?.StopService();
         });

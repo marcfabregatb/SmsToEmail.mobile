@@ -1,4 +1,7 @@
-﻿namespace SmsToEmail.mobile;
+﻿using SmsToEmail.mobile.Services;
+using SmsToEmail.mobile.Services.Interfaces;
+
+namespace SmsToEmail.mobile;
 
 public static class MauiProgram
 {
@@ -19,6 +22,9 @@ public static class MauiProgram
 
         // Add platform specific services
         addPlatformServices?.Invoke(builder.Services);
+
+        builder.Services.AddTransient<ISmsToEmailService, SmsToEmailService>();
+        builder.Services.AddTransient<ISendEmailService, SendEmailService>();
 
         builder.Services.AddSingleton<BlankViewModel>();
 
