@@ -1,5 +1,3 @@
-using AndroidX.Lifecycle;
-
 namespace SmsToEmail.mobile.Views;
 
 public partial class ConfigurationPage : ContentPage

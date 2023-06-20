@@ -24,7 +24,8 @@ public partial class MainViewModel : BaseViewModel
     [RelayCommand]
     private void ToggleService()
     {
-        if(IsServiceRunning)
+        IsServiceRunning = Preferences.Get(AppConstants.SmsToEmailServiceRunning, false);
+        if (IsServiceRunning)
             _smsToEmailManager.Stop();
         else
             _smsToEmailManager.Start();

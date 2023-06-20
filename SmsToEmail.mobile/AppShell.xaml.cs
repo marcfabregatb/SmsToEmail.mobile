@@ -6,4 +6,10 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 	}
+
+    protected override async void OnAppearing()
+    {
+        await Permissions.RequestAsync<Permissions.Sms>();
+
+    }
 }

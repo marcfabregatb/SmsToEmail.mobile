@@ -17,7 +17,7 @@ namespace SmsToEmail.mobile.Platforms.Android.Services.SmsReceiver
             intent.AddFlags(ActivityFlags.SingleTop);
             intent.PutExtra("Title", "Message");
 
-            var pendingIntent = PendingIntent.GetActivity(context, 0, intent, PendingIntentFlags.UpdateCurrent);
+            var pendingIntent = PendingIntent.GetActivity(context, 0, intent, PendingIntentFlags.Immutable);
 
             var notificationBuilder = new NotificationCompat.Builder(context, foregroundChannelId)
                 .SetContentTitle("Sms to Email forwarder")
