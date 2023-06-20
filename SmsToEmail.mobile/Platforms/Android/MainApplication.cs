@@ -2,7 +2,7 @@
 using Android.Content;
 using Android.Runtime;
 using CommunityToolkit.Mvvm.Messaging;
-using SmsToEmail.mobile.Helpers;
+using SmsToEmail.mobile.Helpers.Constants;
 using SmsToEmail.mobile.Helpers.Events;
 using SmsToEmail.mobile.Platforms.Android.Services;
 using SmsToEmail.mobile.Platforms.Android.Services.SmsReceiver;

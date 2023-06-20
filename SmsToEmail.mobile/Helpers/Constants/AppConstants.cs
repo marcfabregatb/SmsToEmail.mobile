@@ -1,4 +1,4 @@
-﻿namespace SmsToEmail.mobile.Helpers
+﻿namespace SmsToEmail.mobile.Helpers.Constants
 {
     public class AppConstants
     {
@@ -6,7 +6,6 @@
         public const string SmsToEmailServiceRunning = "SmsToEmailServiceRunning";
 
 
-        public const string ConfigurationModel = "ConfigurationModel";
         public const string Configuration_Email = "Configuration_Email";
         public const string Configuration_StartOnBoot = "Configuration_StartOnBoot";
         public const string Configuration_SslEnabled= "Configuration_SSLEnabled";

@@ -1,6 +1,6 @@
 ﻿using Android.Content;
 using Android.OS;
-using SmsToEmail.mobile.Helpers;
+using SmsToEmail.mobile.Helpers.Constants;
 using SmsToEmail.mobile.Platforms.Android.Services.SmsReceiver;
 
 namespace SmsToEmail.mobile.Platforms.Android.Services

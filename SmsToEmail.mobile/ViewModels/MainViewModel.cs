@@ -1,4 +1,4 @@
-﻿using SmsToEmail.mobile.Helpers;
+﻿using SmsToEmail.mobile.Helpers.Constants;
 using SmsToEmail.mobile.Services.Interfaces;
 
 namespace SmsToEmail.mobile.ViewModels;

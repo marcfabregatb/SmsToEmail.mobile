@@ -1,4 +1,4 @@
-﻿using SmsToEmail.mobile.Helpers;
+﻿using SmsToEmail.mobile.Helpers.Constants;
 
 namespace SmsToEmail.mobile.ViewModels
 {
@@ -45,7 +45,7 @@ namespace SmsToEmail.mobile.ViewModels
 
         public void LoadValues()
         {
-            Email = Preferences.Get(AppConstants.ConfigurationModel, String.Empty);
+            Email = Preferences.Get(AppConstants.Configuration_Email, String.Empty);
             StartOnBoot = Preferences.Get(AppConstants.Configuration_StartOnBoot, true);
             SslEnabled = Preferences.Get(AppConstants.Configuration_SslEnabled, false);
             SmtpHost = Preferences.Get(AppConstants.Configuration_SmtpHost, String.Empty);
@@ -72,7 +72,7 @@ namespace SmsToEmail.mobile.ViewModels
 
         public void OnAppearing()
         {
-            
+            LoadValues();
         }
     }
 }

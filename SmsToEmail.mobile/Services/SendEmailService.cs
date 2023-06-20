@@ -1,6 +1,5 @@
-﻿using System.Net;
-using System.Net.Mail;
-using SmsToEmail.mobile.Helpers;
+﻿using System.Net.Mail;
+using SmsToEmail.mobile.Helpers.Constants;
 using SmsToEmail.mobile.Models;
 using SmsToEmail.mobile.Services.Interfaces;
 
