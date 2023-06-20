@@ -2,7 +2,7 @@
 
 public static class MauiProgram
 {
-	public static MauiApp CreateMauiApp()
+	public static MauiApp CreateMauiApp(Action<IServiceCollection> addPlatformServices = null)
 	{
 		var builder = MauiApp.CreateBuilder();
 		builder
@@ -17,7 +17,10 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-		builder.Services.AddSingleton<BlankViewModel>();
+        // Add platform specific services
+        addPlatformServices?.Invoke(builder.Services);
+
+        builder.Services.AddSingleton<BlankViewModel>();
 
 		builder.Services.AddSingleton<BlankPage>();
 

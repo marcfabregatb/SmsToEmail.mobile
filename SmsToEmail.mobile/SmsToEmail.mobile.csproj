@@ -46,6 +46,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\service_icon.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Maui" Version="5.1.0" />
 	  <PackageReference Include="CommunityToolkit.MVVM" Version="8.2.0" />
 	  <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.1" />
