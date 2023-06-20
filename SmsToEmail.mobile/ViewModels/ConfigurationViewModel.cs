@@ -36,8 +36,19 @@ namespace SmsToEmail.mobile.ViewModels
 
         private bool ValidateForm()
         {
-            if (string.IsNullOrWhiteSpace(_email)) return false;
+            var isValid = true;
+            if (string.IsNullOrWhiteSpace(_email)) isValid = false;
+            if (string.IsNullOrWhiteSpace(_smtpHost)) isValid = false;
+            if (_port == 0) return false;
+            if (string.IsNullOrWhiteSpace(_user)) isValid = false;
+            if (string.IsNullOrWhiteSpace(_password)) isValid = false;
 
+            if (!isValid)
+            {
+                Application.Current.MainPage.DisplayAlert("Error", "Please fill all mandatory fields", "Ok");
+                return false;
+            
+            }
             return true;
         }
 
