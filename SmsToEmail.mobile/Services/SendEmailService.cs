@@ -13,7 +13,7 @@ namespace SmsToEmail.mobile.Services
 
             var email = Preferences.Get(AppConstants.Configuration_Email, String.Empty);
             var sslEnabled = Preferences.Get(AppConstants.Configuration_SslEnabled, false);
-            var smtpHost = Preferences.Get(AppConstants.Configuration_SmtpClient, String.Empty);
+            var smtpHost = Preferences.Get(AppConstants.Configuration_SmtpHost, String.Empty);
             var port = Preferences.Get(AppConstants.Configuration_Port, 0);
             var secondaryPort = Preferences.Get(AppConstants.Configuration_SecondaryPort, 0);
             var user = Preferences.Get(AppConstants.Configuration_User, String.Empty);

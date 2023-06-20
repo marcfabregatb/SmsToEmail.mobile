@@ -11,7 +11,7 @@ namespace SmsToEmail.mobile.ViewModels
         [ObservableProperty]
         private bool _startOnBoot;
         [ObservableProperty]
-        private string _smtpClient;
+        private string _smtpHost;
         [ObservableProperty]
         private bool _sslEnabled;
         [ObservableProperty]
@@ -48,7 +48,7 @@ namespace SmsToEmail.mobile.ViewModels
             Email = Preferences.Get(AppConstants.ConfigurationModel, String.Empty);
             StartOnBoot = Preferences.Get(AppConstants.Configuration_StartOnBoot, true);
             SslEnabled = Preferences.Get(AppConstants.Configuration_SslEnabled, false);
-            SmtpClient = Preferences.Get(AppConstants.Configuration_SmtpClient, String.Empty);
+            SmtpHost = Preferences.Get(AppConstants.Configuration_SmtpHost, String.Empty);
             Port = Preferences.Get(AppConstants.Configuration_Port, 25);
             SecondaryPort = Preferences.Get(AppConstants.Configuration_SecondaryPort, 0);
             User = Preferences.Get(AppConstants.Configuration_User, String.Empty);
@@ -61,7 +61,7 @@ namespace SmsToEmail.mobile.ViewModels
             Preferences.Set(AppConstants.Configuration_Email, _email);
             Preferences.Set(AppConstants.Configuration_StartOnBoot, _startOnBoot);
             Preferences.Set(AppConstants.Configuration_SslEnabled, _sslEnabled);
-            Preferences.Set(AppConstants.Configuration_SmtpClient, _smtpClient);
+            Preferences.Set(AppConstants.Configuration_SmtpHost, _smtpHost);
             Preferences.Set(AppConstants.Configuration_Port, _port);
             Preferences.Set(AppConstants.Configuration_SecondaryPort, _secondaryPort);
             Preferences.Set(AppConstants.Configuration_User, _user);

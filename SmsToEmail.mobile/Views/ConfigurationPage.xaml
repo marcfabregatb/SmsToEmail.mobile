@@ -18,7 +18,7 @@
                 </TableSection>
                 <TableSection Title="Email server">
                     <SwitchCell Text="SSL Enabled" On="{Binding SslEnabled}" />
-                    <EntryCell Label="SMTP Client:" Placeholder="smtp client" Text="{Binding SmtpClient}"/>
+                    <EntryCell Label="SMTP Host:" Placeholder="smtp host" Text="{Binding SmtpHost}"/>
                     <EntryCell Label="Port:" Placeholder="port" Text="{Binding Port}"/>
                     <EntryCell Label="Secondary port:" Placeholder="optional" Text="{Binding SecondaryPort}"/>
                     <EntryCell Label="User:" Placeholder="user" Text="{Binding User}"/>
