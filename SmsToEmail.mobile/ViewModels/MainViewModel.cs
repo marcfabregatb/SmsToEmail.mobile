@@ -7,6 +7,7 @@ public partial class MainViewModel : BaseViewModel
 {
     private readonly ISmsToEmailService _smsToEmailManager;
     [ObservableProperty] private bool _isServiceRunning;
+    [ObservableProperty] private bool _isServiceConfigured;
 
     public MainViewModel(ISmsToEmailService smsToEmailManager)
     {
@@ -23,7 +24,10 @@ public partial class MainViewModel : BaseViewModel
     [RelayCommand]
     private void ToggleService()
     {
-        _smsToEmailManager.Start();
+        if(IsServiceRunning)
+            _smsToEmailManager.Stop();
+        else
+            _smsToEmailManager.Start();
     }
 
     [RelayCommand]
@@ -35,5 +39,6 @@ public partial class MainViewModel : BaseViewModel
     public void OnAppearing()
     {
         IsServiceRunning = Preferences.Get(AppConstants.SmsToEmailServiceRunning, false);
+        IsServiceConfigured = Preferences.Get(AppConstants.ServiceConfigured, false);
     }
 }
