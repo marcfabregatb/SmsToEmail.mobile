@@ -1,25 +1,23 @@
-﻿using SmsToEmail.mobile.Services.Interfaces;
+﻿using SmsToEmail.mobile.Helpers;
+using SmsToEmail.mobile.Services.Interfaces;
 
 namespace SmsToEmail.mobile.ViewModels;
 
 public partial class MainViewModel : BaseViewModel
 {
     private readonly ISmsToEmailService _smsToEmailManager;
-    [ObservableProperty] private bool _startServiceButtonVisible;
-    [ObservableProperty] private bool _stopServiceButtonVisible;
+    [ObservableProperty] private bool _isServiceRunning;
 
     public MainViewModel(ISmsToEmailService smsToEmailManager)
     {
         _smsToEmailManager = smsToEmailManager;
-
-        StartServiceButtonVisible = true;
-        StopServiceButtonVisible = false;
+        
     }
     
     [RelayCommand]
-    private void NavigateToConfiguration()
+    private async void NavigateToConfiguration()
     {
-        Shell.Current.GoToAsync("ConfigurationPage");
+        await Shell.Current.GoToAsync("ConfigurationPage");
     }
 
     [RelayCommand]
@@ -32,5 +30,10 @@ public partial class MainViewModel : BaseViewModel
     private void StopService()
     {
         _smsToEmailManager.Stop();
+    }
+
+    public void OnAppearing()
+    {
+        IsServiceRunning = Preferences.Get(AppConstants.SmsToEmailServiceRunning, false);
     }
 }

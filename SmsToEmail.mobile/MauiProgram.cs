@@ -27,8 +27,10 @@ public static class MauiProgram
         builder.Services.AddTransient<ISendEmailService, SendEmailService>();
 
         builder.Services.AddSingleton<MainViewModel>();
+        builder.Services.AddSingleton<ConfigurationViewModel>();
 
 		builder.Services.AddSingleton<MainPage>();
+		builder.Services.AddSingleton<ConfigurationPage>();
 
 		// TODO: Add App Center secrets
 		AppCenter.Start(

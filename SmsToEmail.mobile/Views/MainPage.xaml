@@ -47,7 +47,6 @@
         </Grid>
         <VerticalStackLayout Padding="20" Grid.Row="1" Spacing="10">
 
-            <Button Text="Stop Service" IsVisible="{Binding StopServiceButtonVisible}" Command="{Binding StopServiceCommand}"></Button>
             <Button Text="Configure" Command="{Binding NavigateToConfigurationCommand}"></Button>
         </VerticalStackLayout>
     </Grid>
