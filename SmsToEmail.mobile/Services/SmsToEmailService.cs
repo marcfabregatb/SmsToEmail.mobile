@@ -12,12 +12,9 @@ namespace SmsToEmail.mobile.Services
         public SmsToEmailService(ISendEmailService sendEmailService)
         {
             _sendEmailService = sendEmailService;
-        }
-
-        public void Initialize()
-        {
             SmsReceivedEvent.OnSmsReceived += OnSmsReceived;
         }
+
 
         private void OnSmsReceived(object sender, SmsReceivedModel smsEventArgs)
         {
