@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Setup Keystore File
       run: |
-        echo "${{ secrets.ANDROIDKEYSTORE_FILE }}" > fourlinkmobile.keystore.asc
+        echo "${{ secrets.ANDROIDKEYSTORE_FILE }}" > smstoemailmobile.keystore.asc
         gpg -d --passphrase "${{ secrets.ANDROIDKEYSTORE_GPG_PASSWORD }}" --batch smstoemailmobile.keystore.asc > smstoemailmobile.keystore
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
