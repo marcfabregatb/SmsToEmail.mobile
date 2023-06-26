@@ -1,0 +1,38 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: Build And Sign Android APK
+
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Keystore File
+      run: |
+        echo "${{ secrets.ANDROIDKEYSTORE_FILE }}" > smstoemailmobile.keystore.asc
+        gpg -d --passphrase "${{ secrets.ANDROIDKEYSTORE_GPG_PASSWORD }}" --batch smstoemailmobile.keystore.asc > smstoemailmobile.keystore
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+    - name: Install .NET MAUI
+      run: dotnet workload install maui
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build Android
+      run: dotnet publish SmsToEmail.mobile/SmsToEmail.mobile.csproj -c Release -f net7.0-android /p:AndroidSigningKeyStore=smstoemailmobile.keystore /p:AndroidSigningKeyAlias=smstoemailmobile /p:AndroidSigningKeyPass="${{ secrets.ANDROIDKEYSTORE_PASSWORD }}" /p:AndroidSigningStorePass="${{ secrets.ANDROIDKEYSTORE_PASSWORD }}" --no-restore
+
+  uploadArtifact:
+    needs: [build]
+    runs-on: windows-latest
+    name: Upload Artifact
+    steps:
+      - name: Upload Android Artifact
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: smstoemail-android-ci-build
+          path: SmsToEmail.mobile/bin/Release/net7.0-android/*Signed.a*
+          retention-days: 1
