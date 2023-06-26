@@ -34,5 +34,5 @@ jobs:
         uses: actions/upload-artifact@v3.1.2
         with:
           name: smstoemail-android-ci-build
-          path: SmsToEmail.mobile/bin/Release/net7.0-android/*Signed.a*
+          path: SmsToEmail.mobile/bin/Release/net7.0-android/*.a*
           retention-days: 1
