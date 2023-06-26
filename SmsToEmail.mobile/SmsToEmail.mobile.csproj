@@ -46,7 +46,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\Power.svg" />
 	  <None Remove="Resources\Images\service_icon.svg" />
 	</ItemGroup>
 
