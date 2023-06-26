@@ -27,7 +27,7 @@ namespace SmsToEmail.mobile.Platforms.Android.Services.SmsReceiver
                 .SetContentIntent(pendingIntent);
                 
             
-            //notificationBuilder.SetVisibility(NotificationCompat.VisibilitySecret);
+            notificationBuilder.SetVisibility(NotificationCompat.VisibilitySecret);
             if (global::Android.OS.Build.VERSION.SdkInt >= BuildVersionCodes.O)
             {
                 NotificationChannel notificationChannel = new NotificationChannel(foregroundChannelId, "Title", NotificationImportance.High);
